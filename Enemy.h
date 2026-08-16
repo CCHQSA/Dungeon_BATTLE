@@ -1,5 +1,6 @@
 #ifndef ENEMY_H
 #define ENEMY_H
+#include "EnemyType.h"
 
 #include <string>
 
@@ -8,9 +9,9 @@ private:
     std::string name;
     int hp;
     int attack;
-
+    EnemyType type;
 public:
-    Enemy(std::string name, int hp, int attack);
+    Enemy(std::string name, int hp, int attack, EnemyType type);
 
     void takeDamage(int damage);
 
