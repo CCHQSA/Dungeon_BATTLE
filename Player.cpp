@@ -7,7 +7,7 @@ Player::Player() {
 }
 
 void Player::attackEnemy() {
-    // We'll implement this later
+
 }
 
 void Player::takeDamage(int damage) {
