@@ -15,8 +15,9 @@ public:
 
     void takeDamage(int damage);
 
-    int getHp();
-    int getAttack();
+    int getHp() const;
+    int getAttack() const;
+    std::string getName() const;
 };
 
 #endif

@@ -11,16 +11,15 @@ Enemy::Enemy(std::string name, int hp, int attack, EnemyType type){
 
 void Enemy::takeDamage(int damage){
   hp -= damage;
-  if(hp <= 0){
-    std::cout<<"Dead";
-  }else{
-    std::cout << "Enemy hp: " << hp;
-  }
 }
 
-int Enemy::getHp(){
+int Enemy::getHp() const {
   return this->hp;
 }
-int Enemy::getAttack(){
+int Enemy::getAttack() const {
   return this->attack;
+}
+
+std::string Enemy::getName() const {
+  return this->name;
 }

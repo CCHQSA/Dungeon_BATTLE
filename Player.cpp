@@ -12,13 +12,6 @@ void Player::attackEnemy() {
 
 void Player::takeDamage(int damage) {
     hp -= damage;
-
-    if (hp <= 0) {
-        hp = 0;
-        std::cout << "You died\n";
-    } else {
-        std::cout << "Your HP: " << hp << '\n';
-    }
 }
 
 int Player::getHp() {
