@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Battle.h"
 #include "EnemyType.h"
+#include "MeleeWeapon.h"
 
 Game::Game() {
 }
@@ -16,8 +17,8 @@ void Game::startGame() {
 
     giveExp(getEnemyExp(rat.getType()));
     healPlayer();
-    
-
+    player.addWeapon(new MeleeWeapon("Big Sword", 20, 50));
+    player.equipWeapon(0);
     Battle goblinBattle(player, goblin);
 
     if (!goblinBattle.startBattle()) {

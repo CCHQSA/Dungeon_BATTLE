@@ -7,6 +7,7 @@ Battle::Battle(Player& player, Enemy& enemy)
 
 bool Battle::startBattle() {
     int choice;
+    int dealtDamage;
 
     while (player.getHp() > 0 && enemy.getHp() > 0) {
 
@@ -28,9 +29,10 @@ bool Battle::startBattle() {
 
         case 1:
             std::cout << "\nPlayer attacks!" << std::endl;
-
-            enemy.takeDamage(player.getAttack());
-
+            
+            dealtDamage = player.attackEnemy();
+            enemy.takeDamage(dealtDamage);
+            
             if (enemy.getHp() <= 0) {
                 std::cout << enemy.getName() << " died!" << std::endl;
                 std::cout << "You win!" << std::endl;

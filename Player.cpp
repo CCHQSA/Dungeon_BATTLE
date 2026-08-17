@@ -17,9 +17,22 @@ Player::~Player() {
     inventory.clear();
 }
 
-void Player::attackEnemy() {
+int Player::attackEnemy() {
+    int totalDamage = attack;
 
+    if (equippedWeapon != nullptr) {
+        totalDamage += equippedWeapon->getDamage();
+        std::cout << "You attack with " << equippedWeapon->getName() 
+                  << " dealing " << totalDamage << " damage!" << std::endl;
+    } else {
+        std::cout << "You attack with bare hands dealing " << totalDamage << " damage!" << std::endl;
+    }
+
+    return totalDamage;
 }
+
+
+
 
 void Player::takeDamage(int damage) {
     hp -= damage;
@@ -83,10 +96,12 @@ void Player::addWeapon(Weapon* weapon) {
     }
 }
 
-void Player::useWeapon(size_t index) {
+void Player::equipWeapon(size_t index) {
     if (index < inventory.size()) {
-        inventory[index]->use(); 
+        equippedWeapon = inventory[index];
+        std::cout << "You equipped: " << equippedWeapon->getName() << std::endl;
     } else {
         std::cout << "Invalid weapon index!" << std::endl;
     }
 }
+
