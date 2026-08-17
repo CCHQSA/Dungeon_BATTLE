@@ -12,12 +12,17 @@ void Player::attackEnemy() {
 
 void Player::takeDamage(int damage) {
     hp -= damage;
+    if (hp < 0)
+    {
+        hp = 0;
+    }
+    
 }
 
-int Player::getHp() {
+int Player::getHp() const{
     return hp;
 }
 
-int Player::getAttack() {
+int Player::getAttack() const{
     return attack;
 }
