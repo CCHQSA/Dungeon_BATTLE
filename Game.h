@@ -20,6 +20,7 @@ private:
 public:
     Game();
     void startGame();
+    void healPlayer();
 };
 
 #endif

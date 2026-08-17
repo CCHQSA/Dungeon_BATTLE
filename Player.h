@@ -4,6 +4,7 @@
 class Player {
 private:
     int hp;
+    int maxHp;
     int attack;
 
 public:
@@ -11,6 +12,7 @@ public:
 
     void attackEnemy();
     void takeDamage(int damage);
+    void heal(int amount);
 
     int getHp() const;
     int getAttack() const;
