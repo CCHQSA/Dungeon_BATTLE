@@ -21,6 +21,7 @@ public:
     Game();
     void startGame();
     void healPlayer();
+    void giveExp(int amount);
 };
 
 #endif

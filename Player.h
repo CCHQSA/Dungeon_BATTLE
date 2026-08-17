@@ -21,6 +21,8 @@ public:
 
     int getHp() const;
     int getAttack() const;
+    int getExp() const;
+    int getLevel() const;
 
 
 };

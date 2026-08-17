@@ -27,3 +27,7 @@ int Enemy::getAttack() const {
 std::string Enemy::getName() const {
   return this->name;
 }
+
+EnemyType Enemy::getType() const {
+  return this->type;
+}

@@ -30,6 +30,13 @@ int Player::getAttack() const {
     return attack;
 }
 
+int Player::getExp() const{
+    return this->exp;
+}
+int Player::getLevel() const{
+    return this->level;
+}
+
 void Player::heal(int amount) {
     hp += amount;
 

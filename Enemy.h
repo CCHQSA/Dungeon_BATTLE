@@ -17,6 +17,7 @@ public:
 
     int getHp() const;
     int getAttack() const;
+    EnemyType getType() const;
     std::string getName() const;
 };
 
