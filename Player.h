@@ -6,6 +6,8 @@ private:
     int hp;
     int maxHp;
     int attack;
+    int exp;
+    int level;
 
 public:
     Player();
@@ -13,9 +15,14 @@ public:
     void attackEnemy();
     void takeDamage(int damage);
     void heal(int amount);
+    void gainExp(int amount);
+    int requiredExpForLvl(int level);
+
 
     int getHp() const;
     int getAttack() const;
+
+
 };
 
 #endif
