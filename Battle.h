@@ -12,7 +12,7 @@ class Battle{
 
     Battle(Player& player, Enemy& enemy);
 
-    void startBattle();
+    bool startBattle();
 
 };
 

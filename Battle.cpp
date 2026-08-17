@@ -5,11 +5,10 @@ Battle::Battle(Player& player, Enemy& enemy)
     : player(player), enemy(enemy) {
 }
 
-void Battle::startBattle() {
+bool Battle::startBattle() {
     int choice;
-    bool battleRunning = true;
 
-    while (battleRunning && player.getHp() > 0 && enemy.getHp() > 0) {
+    while (player.getHp() > 0 && enemy.getHp() > 0) {
 
         std::cout << "\nPlayer hp: " << player.getHp() << std::endl;
         std::cout << enemy.getName() << " hp: " << enemy.getHp() << std::endl;
@@ -21,7 +20,7 @@ void Battle::startBattle() {
         if (!(std::cin >> choice)) {
             std::cin.clear();
             std::cin.ignore(10000, '\n');
-            std::cout << "Invalid input. Please enter a number." << std::endl;
+            std::cout << "Invalid input. Choose 1 or 2." << std::endl;
             continue;
         }
 
@@ -35,8 +34,7 @@ void Battle::startBattle() {
             if (enemy.getHp() <= 0) {
                 std::cout << enemy.getName() << " died!" << std::endl;
                 std::cout << "You win!" << std::endl;
-                battleRunning = false;
-                break;
+                return true;
             }
 
             std::cout << enemy.getName() << " attacks!" << std::endl;
@@ -46,20 +44,20 @@ void Battle::startBattle() {
             if (player.getHp() <= 0) {
                 std::cout << "You died!" << std::endl;
                 std::cout << "You lose!" << std::endl;
-                battleRunning = false;
-                break;
+                return false;
             }
 
             break;
 
         case 2:
             std::cout << "You escaped!" << std::endl;
-            battleRunning = false;
-            break;
+            return false;
 
         default:
             std::cout << "Invalid choice. Choose 1 or 2." << std::endl;
             break;
         }
     }
+
+    return false;
 }

@@ -5,41 +5,11 @@
 #include "Troll.h"
 #include "Orc.h"
 #include "Dragon.h"
+#include "Game.h"
 
 int main() {
+    Game game;
+    game.startGame();
 
-    Rat rat;
-    Goblin goblin;
-    Troll troll;
-    Orc orc;
-    Dragon dragon;
-    Player player;
-
-
-    Enemy enemy = rat;
-do
-{
-    std::cout << "Player hp, damage: "
-              << player.getHp() << " " << player.getAttack() << "\n";
-
-    std::cout << enemy.getName() << " hp, damage: "
-              << enemy.getHp() << " " << enemy.getAttack() << "\n";
-
-    std::cout << "Player attacks\n";
-
-    enemy.takeDamage(player.getAttack());
-
-    std::cout << enemy.getName() << " hp: "
-              << enemy.getHp() << "\n";
-
-    if (enemy.getHp() > 0)
-    {
-        player.takeDamage(enemy.getAttack());
-
-        std::cout << "Player hp: "
-                  << player.getHp() << "\n";
-    }
-
-} while (player.getHp() > 0 && enemy.getHp() > 0);
-    
+    return 0;
 }
