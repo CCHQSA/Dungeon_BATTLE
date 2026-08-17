@@ -10,6 +10,13 @@ Player::Player() {
     level = 1;
 }
 
+Player::~Player() {
+    for (Weapon* weapon : inventory) {
+        delete weapon;
+    }
+    inventory.clear();
+}
+
 void Player::attackEnemy() {
 
 }
@@ -30,10 +37,11 @@ int Player::getAttack() const {
     return attack;
 }
 
-int Player::getExp() const{
+int Player::getExp() const {
     return this->exp;
 }
-int Player::getLevel() const{
+
+int Player::getLevel() const {
     return this->level;
 }
 
@@ -66,4 +74,19 @@ int Player::requiredExpForLvl(int level) {
     }
 
     return static_cast<int>(50 * std::pow(2, level - 2));
+}
+
+
+void Player::addWeapon(Weapon* weapon) {
+    if (weapon != nullptr) {
+        inventory.push_back(weapon);
+    }
+}
+
+void Player::useWeapon(size_t index) {
+    if (index < inventory.size()) {
+        inventory[index]->use(); 
+    } else {
+        std::cout << "Invalid weapon index!" << std::endl;
+    }
 }
