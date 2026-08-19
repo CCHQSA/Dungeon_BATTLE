@@ -2,12 +2,12 @@
 #define WEAPON_H
 
 #include <string>
+#include "Item.h"
 #include "ItemType.h"
 #include "WeaponType.h"
 
-class Weapon {
+class Weapon : public Item {
 private:
-    std::string name;
     WeaponType type;
     int damage;
 
@@ -17,8 +17,7 @@ public:
 
     virtual ~Weapon() = default;
 
-    virtual bool use() = 0;
-    std::string getName() const;
+    bool use() override = 0;
     WeaponType getType() const;
     int getDamage() const;
 };

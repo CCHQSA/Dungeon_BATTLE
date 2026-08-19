@@ -11,8 +11,8 @@ Player::Player() {
 }
 
 Player::~Player() {
-    for (Weapon* weapon : inventory) {
-        delete weapon;
+    for (Item* item : inventory) {
+        delete item;
     }
     inventory.clear();
 }
@@ -103,8 +103,13 @@ void Player::addWeapon(Weapon* weapon) {
 
 void Player::equipWeapon(size_t index) {
     if (index < inventory.size()) {
-        equippedWeapon = inventory[index];
-        std::cout << "You equipped: " << equippedWeapon->getName() << std::endl;
+        Weapon* weapon = dynamic_cast<Weapon*>(inventory[index]);
+        if (weapon != nullptr) {
+            equippedWeapon = weapon;
+            std::cout << "You equipped: " << equippedWeapon->getName() << std::endl;
+        } else {
+            std::cout << "Selected item is not a weapon!" << std::endl;
+        }
     } else {
         std::cout << "Invalid weapon index!" << std::endl;
     }
