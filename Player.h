@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Weapon.h"
+#include "Item.h"
 
 class Player {
 private:
@@ -11,7 +12,7 @@ private:
     int attack;
     int exp;
     int level;
-    std::vector<Weapon*> inventory; 
+    std::vector<Item*> inventory; 
     Weapon* equippedWeapon = nullptr; 
 
 public:

@@ -1,13 +1,8 @@
 #include "Weapon.h"
 
 
-Weapon::Weapon(std::string weaponName, WeaponType weaponType, int weaponDamage): name(weaponName), type(weaponType), damage(weaponDamage) {}
+Weapon::Weapon(std::string weaponName, WeaponType weaponType, int weaponDamage): Item(weaponName, ItemType::WEAPON), type(weaponType), damage(weaponDamage) {}
 
-
-std::string Weapon::getName() const
-{
-  return name;
-}
 
 WeaponType Weapon::getType() const {
     return type;
