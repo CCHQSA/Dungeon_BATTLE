@@ -58,6 +58,10 @@ Armor* Player::getEquippedArmor() const {
 
 int Player::getArmorDefence() const { return this->armorDefence; }
 
+std::vector<Item *> Player::getInventory() const {
+    return this->inventory;
+}
+
 void Player::heal(int amount) {
     hp += amount;
     if (hp > maxHp) {

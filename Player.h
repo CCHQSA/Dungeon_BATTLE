@@ -40,6 +40,7 @@ public:
     int getExp() const;
     int getLevel() const;
     int getArmorDefence() const;
+    std::vector<Item*> getInventory() const;
 };
 
 #endif

@@ -16,6 +16,9 @@ int MeleeWeapon::use(int baseDamage) {
 
     int totalDamage = getDamage() + baseDamage;
 
+    std::cout << getName() << " damages: " << totalDamage
+              << ". Remaining durability: " << durability << "\n";
+
     std::cout << "Attacked with " << getName() << std::endl;
     std::cout << "Total Damage: " << totalDamage << std::endl;
     std::cout << "Durability: " << durability << std::endl;

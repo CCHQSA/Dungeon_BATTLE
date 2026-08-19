@@ -4,12 +4,14 @@
 #include "EnemyType.h"
 #include "MeleeWeapon.h"
 #include "Armor.h"
+#include "HybridWeapon.h"
+#include "RangedWeapon.h"
 
 Game::Game() {
 }
 
 void Game::startGame() {
-    int count = 0;
+    equipItem();
     Battle ratBattle(player, rat);
 
     if (!ratBattle.startBattle()) {
@@ -18,13 +20,9 @@ void Game::startGame() {
 
     giveExp(getEnemyExp(rat.getType()));
     player.addItem(new MeleeWeapon("Big Sword", 20, 50));
-    player.equipWeapon(count);
-    count++;
-    player.addItem(new Armor("Iron armor", 10, 20));
-    player.equipArmor(count);
-    count++;
-    healPlayer();
 
+    healPlayer();
+    equipItem();
     Battle goblinBattle(player, goblin);
 
     if (!goblinBattle.startBattle()) {
@@ -33,16 +31,16 @@ void Game::startGame() {
 
     giveExp(getEnemyExp(goblin.getType()));
     healPlayer();
-    
+    equipItem();
     Battle orcBattle(player, orc);
 
     if (!orcBattle.startBattle()) {
         return;
     }
-
+    player.addItem(new Armor("Iron armor", 10, 20));
     giveExp(getEnemyExp(orc.getType()));
     healPlayer();
-
+    equipItem();
     Battle trollBattle(player, troll);
 
     if (!trollBattle.startBattle()) {
@@ -50,11 +48,9 @@ void Game::startGame() {
     }
 
     giveExp(getEnemyExp(troll.getType()));
-    player.addItem(new MeleeWeapon("Dragon Slayer", 300, 10));
-    player.equipWeapon(count);
-    count++;
+    player.addItem(new HybridWeapon("Slayer", 100, 20, 30));
     healPlayer();
-    
+    equipItem();
     Battle dragonBattle(player, dragon);
 
     if (!dragonBattle.startBattle()) {
@@ -62,10 +58,10 @@ void Game::startGame() {
     }
 
     giveExp(getEnemyExp(dragon.getType()));
-    healPlayer();
 
     std::cout << "\nCongratulations! You completed the dungeon!" << std::endl;
 }
+
 
 void Game::healPlayer() {
     int choice;
@@ -93,3 +89,48 @@ void Game::giveExp(int amount){
               << " | XP: " << player.getExp() << "/" << player.requiredExpForLvl(player.getLevel() + 1) 
               << std::endl;
 }
+
+void Game::equipItem() {
+    int choice = -1;
+
+    while (choice != 0) {
+        if (player.getInventory().empty()) {
+            std::cout << "\nInventory is empty!" << std::endl;
+            break;
+        }
+
+        std::cout << "\n--- Your Inventory ---" << std::endl;
+        for (size_t i = 0; i < player.getInventory().size(); i++) {
+            std::cout << i + 1 << ". " << player.getInventory()[i]->getName() << std::endl;
+        }
+
+        std::cout << "Choose item to equip (or 0 to close inventory): ";
+        std::cin >> choice;
+
+        if (choice == 0) {
+            std::cout << "Exiting equipment menu." << std::endl;
+            continue;
+        }
+
+        if (choice > 0 && choice <= static_cast<int>(player.getInventory().size())) {
+            auto* selectedItem = player.getInventory()[choice - 1];
+
+            if (selectedItem != nullptr) {
+                if (selectedItem->getType() == ItemType::WEAPON) {
+                    player.equipWeapon(choice - 1);
+                }
+                else if (selectedItem->getType() == ItemType::ARMOR) {
+                    player.equipArmor(choice - 1);
+                }
+                else {
+                    std::cout << "You cannot equip this item!" << std::endl;
+                }
+            }
+        }
+        else {
+            std::cout << "Invalid choice! Please try again." << std::endl;
+        }
+    }
+}
+
+
