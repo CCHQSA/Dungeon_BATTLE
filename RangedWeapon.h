@@ -10,8 +10,8 @@ private:
 
 public:
     RangedWeapon(std::string name, int damage, int weaponMaxAmmo);
-    
-    bool use() override;
+
+    int use(int baseDamage = 0) override;
     
     int getMaxAmmo() const;
     int getCurrentAmmo() const;

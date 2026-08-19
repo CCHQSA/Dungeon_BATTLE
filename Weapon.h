@@ -12,12 +12,12 @@ private:
     int damage;
 
 public:
-
     Weapon(std::string weaponName, WeaponType weaponType, int weaponDamage);
 
     virtual ~Weapon() = default;
 
-    bool use() override = 0;
+    int use(int baseValue = 0) override = 0;
+    
     WeaponType getType() const;
     int getDamage() const;
 };

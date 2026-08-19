@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Player.h"
 #include <cmath>
+#include "Weapon.h" 
+#include "Armor.h" 
 
 Player::Player() {
     maxHp = 100;
@@ -8,6 +10,8 @@ Player::Player() {
     attack = 10;
     exp = 0;
     level = 1;
+    equippedWeapon = nullptr;
+    equippedArmor = nullptr;
 }
 
 Player::~Player() {
@@ -16,6 +20,7 @@ Player::~Player() {
     }
     inventory.clear();
 }
+
 int Player::attackEnemy() {
     int totalDamage = attack;
 
@@ -34,38 +39,27 @@ int Player::attackEnemy() {
     }
 }
 
-
 void Player::takeDamage(int damage) {
     hp -= damage;
-
     if (hp < 0) {
         hp = 0;
     }
 }
 
-int Player::getHp() const {
-    return hp;
+int Player::getHp() const { return hp; }
+int Player::getAttack() const { return attack; }
+int Player::getExp() const { return this->exp; }
+int Player::getLevel() const { return this->level; }
+Weapon* Player::getEquippedWeapon() const { return this->equippedWeapon; }
+
+Armor* Player::getEquippedArmor() const { 
+    return this->equippedArmor; 
 }
 
-int Player::getAttack() const {
-    return attack;
-}
-
-int Player::getExp() const {
-    return this->exp;
-}
-
-int Player::getLevel() const {
-    return this->level;
-}
-
-Weapon* Player::getEquippedWeapon() const{
-    return this->equippedWeapon;
-}
+int Player::getArmorDefence() const { return this->armorDefence; }
 
 void Player::heal(int amount) {
     hp += amount;
-
     if (hp > maxHp) {
         hp = maxHp;
     }
@@ -73,31 +67,23 @@ void Player::heal(int amount) {
 
 void Player::gainExp(int amount) {
     exp += amount;
-
     while (exp >= requiredExpForLvl(level + 1)) {
         level++;
-
         maxHp += 5;
         hp += 5;
         attack += 1;
-
-        std::cout << "Level up! You are now level "
-                  << level << std::endl;
+        std::cout << "Level up! You are now level " << level << std::endl;
     }
 }
 
 int Player::requiredExpForLvl(int level) {
-    if (level <= 1) {
-        return 0;
-    }
-
+    if (level <= 1) return 0;
     return static_cast<int>(50 * std::pow(2, level - 2));
 }
 
-
-void Player::addWeapon(Weapon* weapon) {
-    if (weapon != nullptr) {
-        inventory.push_back(weapon);
+void Player::addItem(Item* item) {
+    if (item != nullptr) {
+        inventory.push_back(item);
     }
 }
 
@@ -115,3 +101,16 @@ void Player::equipWeapon(size_t index) {
     }
 }
 
+void Player::equipArmor(size_t index) {
+    if (index < inventory.size()) {
+        Armor* armor = dynamic_cast<Armor*>(inventory[index]);
+        if (armor != nullptr) {
+            equippedArmor = armor; 
+            std::cout << "You equipped: " << equippedArmor->getName() << std::endl;
+        } else {
+            std::cout << "Selected item is not an armor!" << std::endl;
+        }
+    } else {
+        std::cout << "Invalid armor index!" << std::endl;
+    }
+}

@@ -6,17 +6,19 @@ MeleeWeapon::MeleeWeapon(std::string name, int damage, int weaponDurability)
 
 int MeleeWeapon::getDurability() const { return durability; }
 
-bool MeleeWeapon::use() {
+int MeleeWeapon::use(int baseDamage) {
     if (durability <= 0) {
         std::cout << getName() << " is broken!\n";
-        return false;
+        return 0; 
     }
 
     durability--;
 
+    int totalDamage = getDamage() + baseDamage;
+
     std::cout << "Attacked with " << getName() << std::endl;
-    std::cout << "Damage: " << getDamage() << std::endl;
+    std::cout << "Total Damage: " << totalDamage << std::endl;
     std::cout << "Durability: " << durability << std::endl;
 
-    return true;
+    return totalDamage;
 }

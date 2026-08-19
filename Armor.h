@@ -1,23 +1,19 @@
-#ifndef ARMOR_H
-#define ARMOR_H
+#pragma once
+
 #include <string>
 #include "Item.h"
 #include "ItemType.h"
 
 class Armor : public Item {
-    private:
-      int defense;
-      int durability;
-    public:
-      Armor(std::string name, int defence, int durability);
+private:
+    double defense;
+    int durability;
 
+public:
+    Armor(std::string name, double defense, int durability);
 
-      int getDefence() const;
-      int getDurability();
+    double getDefense() const;
+    double getDurability() const; 
 
-      bool defence(int damage);
-
+    int use(int incomingDamage = 0) override;
 };
-
-
-#endif

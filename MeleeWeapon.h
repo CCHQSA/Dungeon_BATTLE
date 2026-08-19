@@ -10,7 +10,7 @@ private:
 public:
     MeleeWeapon(std::string name, int damage, int weaponDurability);
 
-    bool use() override;
+    int use(int baseDamage = 0) override;
     
     int getDurability() const;
 };

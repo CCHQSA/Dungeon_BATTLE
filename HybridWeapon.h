@@ -10,10 +10,9 @@ private:
     int durability;
 
 public:
-
     HybridWeapon(std::string name, int damage, int weaponMaxAmmo, int weaponDurability);
 
-    bool use() override;
+    int use(int baseDamage = 0) override;
 
     int getMaxAmmo() const;
     int getCurrentAmmo() const;

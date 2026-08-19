@@ -4,6 +4,7 @@
 #include <vector>
 #include "Weapon.h"
 #include "Item.h"
+#include "Armor.h"
 
 class Player {
 private:
@@ -12,8 +13,10 @@ private:
     int attack;
     int exp;
     int level;
+    int armorDefence;
     std::vector<Item*> inventory; 
     Weapon* equippedWeapon = nullptr; 
+    Armor* equippedArmor = nullptr;
 
 public:
     Player();
@@ -25,14 +28,18 @@ public:
     void gainExp(int amount);
     int requiredExpForLvl(int level);
 
-    void addWeapon(Weapon* weapon);
+    void addItem(Item* item);
     void equipWeapon(size_t index); 
     Weapon* getEquippedWeapon() const;
+
+    void equipArmor(size_t armor);
+    Armor* getEquippedArmor() const;
 
     int getHp() const;
     int getAttack() const;
     int getExp() const;
     int getLevel() const;
+    int getArmorDefence() const;
 };
 
 #endif

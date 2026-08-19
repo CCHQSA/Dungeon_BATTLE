@@ -3,6 +3,7 @@
 #include "Battle.h"
 #include "EnemyType.h"
 #include "MeleeWeapon.h"
+#include "Armor.h"
 
 Game::Game() {
 }
@@ -16,8 +17,11 @@ void Game::startGame() {
     }
 
     giveExp(getEnemyExp(rat.getType()));
-    player.addWeapon(new MeleeWeapon("Big Sword", 20, 50));
+    player.addItem(new MeleeWeapon("Big Sword", 20, 50));
     player.equipWeapon(count);
+    count++;
+    player.addItem(new Armor("Iron armor", 10, 20));
+    player.equipArmor(count);
     count++;
     healPlayer();
 
@@ -46,7 +50,7 @@ void Game::startGame() {
     }
 
     giveExp(getEnemyExp(troll.getType()));
-    player.addWeapon(new MeleeWeapon("Dragon Slayer", 300, 10));
+    player.addItem(new MeleeWeapon("Dragon Slayer", 300, 10));
     player.equipWeapon(count);
     count++;
     healPlayer();

@@ -14,7 +14,7 @@ public:
 
     virtual ~Item() = default;
 
-    virtual bool use() = 0;
+    virtual int use(int baseValue = 0) = 0;
 
     std::string getName() const;
     ItemType getType() const;

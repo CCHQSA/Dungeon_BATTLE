@@ -12,15 +12,17 @@ void RangedWeapon::reload() {
     std::cout << getName() << " Reloaded! Ammo: " << currentAmmo << "/" << maxAmmo << "\n";
 }
 
-bool RangedWeapon::use() {
+int RangedWeapon::use(int baseDamage) {
     if (currentAmmo > 0) {
         currentAmmo--;
-        std::cout << "Attacked with " << getName() <<std::endl
-                  << "Damage: " << getDamage() 
+        int totalDamage = getDamage() + baseDamage;
+        std::cout << "Attacked with " << getName() << std::endl
+                  << "Damage: " << totalDamage << std::endl
                   << "Ammo: " << currentAmmo << "/" << maxAmmo << "\n";
-        return true;
+        return totalDamage;
     } else {
-        std::cout <<getName() << " Mo ammo. Reload needed!\n";
-        return false;
+        std::cout << getName() << " No ammo. Automatically reloading instead of attacking!\n";
+        reload();
+        return 0;
     }
 }

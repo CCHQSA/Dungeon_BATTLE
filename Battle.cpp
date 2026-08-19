@@ -8,6 +8,7 @@ Battle::Battle(Player& player, Enemy& enemy)
 bool Battle::startBattle() {
     int choice;
     int dealtDamage;
+    int takeDamage; 
 
     while (player.getHp() > 0 && enemy.getHp() > 0) {
 
@@ -27,11 +28,15 @@ bool Battle::startBattle() {
 
         switch (choice) {
 
-        case 1:
+case 1: {
             std::cout << "\nPlayer attacks!" << std::endl;
-            if(player.getEquippedWeapon() != nullptr){
-                dealtDamage = player.getAttack() + player.getEquippedWeapon()->getDamage();
-            }else{
+            
+            if (player.getEquippedWeapon() != nullptr) {
+                dealtDamage = player.getEquippedWeapon()->use(player.getAttack());
+                if (dealtDamage == 0) { 
+                    dealtDamage = player.getAttack();
+                }
+            } else {
                 dealtDamage = player.getAttack();
             }
             
@@ -45,16 +50,20 @@ bool Battle::startBattle() {
 
             std::cout << enemy.getName() << " attacks!" << std::endl;
 
-            player.takeDamage(enemy.getAttack());
+            int incomingDamage = enemy.getAttack();
+            if (player.getEquippedArmor() != nullptr) {
+                incomingDamage = player.getEquippedArmor()->use(incomingDamage);
+            }
+
+            player.takeDamage(incomingDamage);
 
             if (player.getHp() <= 0) {
                 std::cout << "You died!" << std::endl;
                 std::cout << "You lose!" << std::endl;
                 return false;
             }
-
             break;
-
+        }
         case 2:
             std::cout << "You escaped!" << std::endl;
             return false;
