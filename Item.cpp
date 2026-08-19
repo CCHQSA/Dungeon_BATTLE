@@ -1,4 +1,4 @@
-#include "Item.h"
+#include "Item.hpp"
 
 Item::Item(std::string itemName, ItemType itemType) : name(itemName), type(itemType) {}
 

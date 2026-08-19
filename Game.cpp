@@ -1,10 +1,10 @@
 #include <iostream>
-#include "Game.h"
-#include "Battle.h"
-#include "EnemyType.h"
-#include "MeleeWeapon.h"
-#include "Armor.h"
-#include "HybridWeapon.h"
+#include "Game.hpp"
+#include "Battle.hpp"
+#include "EnemyType.hpp"
+#include "MeleeWeapon.hpp"
+#include "Armor.hpp"
+#include "HybridWeapon.hpp"
 #include "RangedWeapon.h"
 
 Game::Game() {

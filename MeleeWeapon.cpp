@@ -1,4 +1,4 @@
-#include "MeleeWeapon.h"
+#include "MeleeWeapon.hpp"
 #include <iostream>
 
 MeleeWeapon::MeleeWeapon(std::string name, int damage, int weaponDurability)

@@ -1,7 +1,7 @@
 #ifndef BATTLE_H
 #define BATTLE_H
-#include "Player.h"
-#include "Enemy.h"
+#include "Player.hpp"
+#include "Enemy.hpp"
 
 class Battle{
   private:

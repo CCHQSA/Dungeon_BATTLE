@@ -1,7 +1,7 @@
 #ifndef HYBRID_WEAPON_H
 #define HYBRID_WEAPON_H
 
-#include "Weapon.h"
+#include "Weapon.hpp"
 
 class HybridWeapon : public Weapon {
 private:

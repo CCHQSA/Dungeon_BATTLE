@@ -1,7 +1,7 @@
 #ifndef MELEE_WEAPON_H
 #define MELEE_WEAPON_H
 
-#include "Weapon.h"
+#include "Weapon.hpp"
 
 class MeleeWeapon : public Weapon {
 private:

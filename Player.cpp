@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Player.h"
+#include "Player.hpp"
 #include <cmath>
-#include "Weapon.h" 
-#include "Armor.h" 
+#include "Weapon.hpp" 
+#include "Armor.hpp" 
 
 Player::Player() {
     maxHp = 100;

@@ -1,6 +1,6 @@
 #ifndef TROLL_H
 #define TROLL_H
-#include "Enemy.h"
+#include "Enemy.hpp"
 
 class Troll : public Enemy {
 public:

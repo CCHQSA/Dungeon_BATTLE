@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Armor.h"
+#include "Armor.hpp"
 #include <iomanip>
 #include <cmath>
 

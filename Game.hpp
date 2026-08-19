@@ -1,12 +1,12 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Player.h"
-#include "Rat.h"
-#include "Goblin.h"
-#include "Orc.h"
-#include "Troll.h"
-#include "Dragon.h"
+#include "Player.hpp"
+#include "Rat.hpp"
+#include "Goblin.hpp"
+#include "Orc.hpp"
+#include "Troll.hpp"
+#include "Dragon.hpp"
 
 class Game {
 private:

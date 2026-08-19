@@ -1,6 +1,6 @@
 #ifndef ENEMY_H
 #define ENEMY_H
-#include "EnemyType.h"
+#include "EnemyType.hpp"
 
 #include <string>
 

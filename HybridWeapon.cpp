@@ -1,4 +1,4 @@
-#include "HybridWeapon.h"
+#include "HybridWeapon.hpp"
 #include <iostream>
 
 HybridWeapon::HybridWeapon(std::string name, int damage, int weaponMaxAmmo, int weaponDurability)

@@ -1,8 +1,8 @@
 #pragma once
 
 #include <string>
-#include "Item.h"
-#include "ItemType.h"
+#include "Item.hpp"
+#include "ItemType.hpp"
 
 class Armor : public Item {
 private:

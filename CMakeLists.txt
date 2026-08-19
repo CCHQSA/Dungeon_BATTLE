@@ -7,36 +7,36 @@ include_directories(.)
 
 add_executable(Dungeon_Battle
         Armor.cpp
-        Armor.h
+        Armor.hpp
         Battle.cpp
-        Battle.h
+        Battle.hpp
         Dragon.cpp
-        Dragon.h
+        Dragon.hpp
         Enemy.cpp
-        Enemy.h
-        EnemyType.h
+        Enemy.hpp
+        EnemyType.hpp
         Game.cpp
-        Game.h
+        Game.hpp
         Goblin.cpp
-        Goblin.h
+        Goblin.hpp
         HybridWeapon.cpp
-        HybridWeapon.h
+        HybridWeapon.hpp
         Item.cpp
-        Item.h
-        ItemType.h
+        Item.hpp
+        ItemType.hpp
         main.cpp
         MeleeWeapon.cpp
-        MeleeWeapon.h
+        MeleeWeapon.hpp
         Orc.cpp
-        Orc.h
+        Orc.hpp
         Player.cpp
-        Player.h
+        Player.hpp
         RangedWeapon.cpp
         RangedWeapon.h
         Rat.cpp
-        Rat.h
+        Rat.hpp
         Troll.cpp
-        Troll.h
+        Troll.hpp
         Weapon.cpp
-        Weapon.h
-        WeaponType.h)
+        Weapon.hpp
+        WeaponType.hpp)

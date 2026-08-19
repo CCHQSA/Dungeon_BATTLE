@@ -2,9 +2,9 @@
 #define WEAPON_H
 
 #include <string>
-#include "Item.h"
-#include "ItemType.h"
-#include "WeaponType.h"
+#include "Item.hpp"
+#include "ItemType.hpp"
+#include "WeaponType.hpp"
 
 class Weapon : public Item {
 private:

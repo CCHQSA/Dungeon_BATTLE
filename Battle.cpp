@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Battle.h"
+#include "Battle.hpp"
 
 Battle::Battle(Player& player, Enemy& enemy)
     : player(player), enemy(enemy) {

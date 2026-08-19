@@ -1,11 +1,11 @@
 #include <iostream>
-#include "Player.h"
-#include "Rat.h"
-#include "Goblin.h"
-#include "Troll.h"
-#include "Orc.h"
-#include "Dragon.h"
-#include "Game.h"
+#include "Player.hpp"
+#include "Rat.hpp"
+#include "Goblin.hpp"
+#include "Troll.hpp"
+#include "Orc.hpp"
+#include "Dragon.hpp"
+#include "Game.hpp"
 
 int main() {
     Game game;

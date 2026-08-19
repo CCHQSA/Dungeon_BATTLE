@@ -2,7 +2,7 @@
 #define ITEM_H
 
 #include <string>
-#include "ItemType.h"
+#include "ItemType.hpp"
 
 class Item {
 private:

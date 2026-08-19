@@ -2,9 +2,9 @@
 #define PLAYER_H
 
 #include <vector>
-#include "Weapon.h"
-#include "Item.h"
-#include "Armor.h"
+#include "Weapon.hpp"
+#include "Item.hpp"
+#include "Armor.hpp"
 
 class Player {
 private:

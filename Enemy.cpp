@@ -1,6 +1,6 @@
 #include<iostream>
 #include<string>
-#include "Enemy.h"
+#include "Enemy.hpp"
 
 Enemy::Enemy(std::string name, int hp, int attack, EnemyType type){
   this->name = name;
